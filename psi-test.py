@@ -40,7 +40,8 @@ def get_psi_response(url_list, strategy_type):
         url = testing_urls.iloc[i][testing_urls_column_header]
         print("{} - Parsing url is {}".format(strategy_type, url))
         # Make request
-        pagespeed_results = urllib.urlopen('https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url={}&strategy={}&key={}'\
+        pagespeed_results = urllib.urlopen(\
+            'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url={}&strategy={}&key={}'\
             .format(url, strategy_type, API_KEY)).read().decode('UTF-8')
         # Convert to json format
         pagespeed_results_json = json.loads(pagespeed_results)
